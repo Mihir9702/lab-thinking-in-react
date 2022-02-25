@@ -18,7 +18,9 @@ const ProductsPage = () => {
   }, [search]);
 
   useEffect(() => {
-    setProducts(jsonData.filter((product) => product.inStock !== stock));
+    stock
+      ? setProducts(jsonData.filter((product) => product.inStock))
+      : setProducts(jsonData);
   }, [stock]);
 
   return (

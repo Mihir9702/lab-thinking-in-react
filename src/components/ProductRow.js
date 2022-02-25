@@ -2,22 +2,30 @@ import React from 'react';
 
 const ProductRow = ({ product }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <p style={{ position: 'relative', marginRight: '22em' }}>
-        {product.name}
-      </p>
-      <p style={{ position: 'absolute', marginLeft: '23em' }}>
-        {product.price}
-      </p>
+    <div style={styles.flex}>
+      <p style={styles.name}>{product.name}</p>
+      <p style={styles.price}>{product.price}</p>
     </div>
   );
+};
+
+const styles = {
+  name: {
+    position: 'relative',
+    marginRight: '22.5em',
+  },
+
+  price: {
+    position: 'absolute',
+    marginLeft: '22.5em',
+  },
+
+  flex: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 };
 
 export default ProductRow;

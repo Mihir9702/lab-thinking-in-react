@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const SearchBar = ({ search, setSearch }) => {
+const SearchBar = ({ setProducts, jsonData }) => {
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    setProducts(
+      jsonData.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, jsonData, setProducts]);
+
   return (
     <div>
       <h3>Search</h3>

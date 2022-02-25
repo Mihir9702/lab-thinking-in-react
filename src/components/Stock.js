@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Stock = ({ stock, setStock }) => {
+const Stock = ({ setProducts, jsonData }) => {
+  const [stock, setStock] = useState(false);
+
+  useEffect(() => {
+    stock
+      ? setProducts(jsonData.filter((product) => product.inStock))
+      : setProducts(jsonData);
+  }, [stock, jsonData, setProducts]);
+
   return (
     <div>
       <label>Check In Stock Only</label>
